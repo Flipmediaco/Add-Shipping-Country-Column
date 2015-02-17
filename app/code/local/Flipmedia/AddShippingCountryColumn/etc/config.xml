@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Flipmedia_AddShippingCountryColumn>
+            <version>1.0.0</version>
+        </Flipmedia_AddShippingCountryColumn>
+    </modules>
+    <global>
+        <models>
+            <Flipmedia_AddShippingCountryColumn>
+                <class>Flipmedia_AddShippingCountryColumn_Model</class>
+            </Flipmedia_AddShippingCountryColumn>
+        </models>
+        <events>
+            <!-- Add observer configuration -->
+            <sales_order_resource_init_virtual_grid_columns>
+                <observers>
+                    <Flipmedia_AddShippingCountryColumn>
+                        <model>Flipmedia_AddShippingCountryColumn/Observer</model>
+                        <method>addColumnToResource</method>
+                    </Flipmedia_AddShippingCountryColumn>
+                </observers>
+            </sales_order_resource_init_virtual_grid_columns>
+        </events>
+        <resources>
+            <!-- initialize sql upgrade setup -->
+            <Flipmedia_AddShippingCountryColumn_setup>
+                <setup>
+                    <module>Flipmedia_AddShippingCountryColumn</module>
+                    <class>Mage_Sales_Model_Mysql4_Setup</class>
+                </setup>
+            </Flipmedia_AddShippingCountryColumn_setup>
+        </resources>
+    </global>
+    <adminhtml>
+        <layout>
+             <!-- layout upgrade configuration -->
+            <updates>
+                <Flipmedia_AddShippingCountryColumn>
+                    <file>Flipmedia_AddShippingCountryColumn.xml</file>
+                </Flipmedia_AddShippingCountryColumn>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

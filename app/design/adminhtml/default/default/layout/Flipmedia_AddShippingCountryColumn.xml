@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<layout>
+    <!-- main layout definition that adds the column -->
+    <add_order_grid_column_handle>
+        <reference name="sales_order.grid">
+            <action method="addColumnAfter">
+                <columnId>customer_country_id</columnId>
+                <arguments module="ordermanager" translate="header">
+                    <header>Shipping Country</header>
+					<index>customer_country_id</index>
+                    <type>options</type>
+                    <sortable>true</sortable>
+					<filter>Flipmedia_AddShippingCountryColumn_Adminhtml_Block_Widget_Grid_Column_Filter_Country</filter>
+					<renderer>Flipmedia_AddShippingCountryColumn_Adminhtml_Block_Widget_Grid_Column_Renderer_Country</renderer>
+                </arguments>
+                <after>status</after>
+            </action>
+        </reference>
+    </add_order_grid_column_handle>
+ 
+    <!-- order grid action -->
+    <adminhtml_sales_order_grid>
+        <!-- apply the layout handle defined above -->
+        <update handle="add_order_grid_column_handle" />
+    </adminhtml_sales_order_grid>
+ 
+    <!-- order grid view action -->
+    <adminhtml_sales_order_index>
+        <!-- apply the layout handle defined above -->
+        <update handle="add_order_grid_column_handle" />
+    </adminhtml_sales_order_index>
+</layout>
